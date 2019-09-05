@@ -1,3 +1,5 @@
+import ast
+
 def split(sudoku):
     return [char for char in sudoku]
 
@@ -7,15 +9,15 @@ board = []
 sudoku = "105802000090076405200400819019007306762083090000061050007600030430020501600308900"
 # board.append(split(sudoku))
 # print(split(sudoku[0:9]))
-board.append(split(sudoku[0:9]))
-board.append(split(sudoku[9:18]))
-board.append(split(sudoku[18:27]))
-board.append(split(sudoku[27:36]))
-board.append(split(sudoku[36:45]))
-board.append(split(sudoku[45:54]))
-board.append(split(sudoku[54:63]))
-board.append(split(sudoku[63:72]))
-board.append(split(sudoku[72:81]))
+board.append(list(map(int,split(sudoku[0:9]))))
+board.append(list(map(int,split(sudoku[9:18]))))
+board.append(list(map(int,split(sudoku[18:27]))))
+board.append(list(map(int,split(sudoku[27:36]))))
+board.append(list(map(int,split(sudoku[36:45]))))
+board.append(list(map(int,split(sudoku[45:54]))))
+board.append(list(map(int,split(sudoku[54:63]))))
+board.append(list(map(int,split(sudoku[63:72]))))
+board.append(list(map(int,split(sudoku[72:81]))))
 print(board)
 
 # def sublists(board):
@@ -78,7 +80,7 @@ def checkBox(board, num, pos):
 
     for x in range(box_y*3, box_y*3 + 3 ):
         for y in range(box_x * 3, box_x * 3 + 3 ):
-            if board[x][y] == num and (i,j) != pos:
+            if board[x][y] == num and (x,y) != pos:
                 return False
     return True
 
